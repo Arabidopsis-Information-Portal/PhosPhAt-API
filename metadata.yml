@@ -4,7 +4,7 @@ name: phosphorylation_sites
 description: "Returns experimental or predicted phosphorylation sites or phosphorylation hotspots."
 version: 0.1
 type: query
-main_module: phosphorylation_sites/main.py
+main_module: main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de
