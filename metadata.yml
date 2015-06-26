@@ -1,0 +1,58 @@
+
+---
+name: phosphorylation_sites
+description: "Returns experimental or predicted phosphorylation sites or phosphorylation hotspots."
+version: 0.1
+type: query
+main_module: phosphorylation_sites/main.py
+url: http://phosphat.uni-hohenheim.de/
+whitelist:
+  - phosphat.uni-hohenheim.de
+
+tags:
+    - PhosPhAt
+    - protein
+    - dev
+    - phosphorylation
+
+authors:
+    - name: Ismail Liban
+    - email: iliban@jcvi.org
+    - sponsor_organization: JCVI
+    - sponsor_uri: http://www.jcvi.org/
+
+endpoints:
+  /search:
+    parameters:
+      - name: locus
+        description: Arabidopsis gene identifier (AGI)
+        type: string
+        required: true
+        default: At2G46830.1
+      - name: search_type
+        description: If you're searching for 'experimental', 'predicted' or 'hotspot'
+        type: string
+        required: true
+        default: experimental
+        enum:
+          - 'experimental'
+          - 'predicted'
+          - 'hotspot'
+      - name: modified_sequence
+        description: Only provided if doing an 'experimental' search. If left blank it will be returned.
+        type: string
+        required: false
+
+sources:
+  - title: The Arabidopsis Protein Phosphorylation Site Database (PhosPhAt)
+    description: 'PhosPhAt contains information on Arabidopsis phosphorylation sites.'
+    uri: http://phosphat.uni-hohenheim.de/
+  - description: Zulawski M, Braginets R, Schulze WX (2013)
+    title: 'PhosPhAt goes kinases – Searchable protein kinase target information in the plant phosphorylation site database PhosPhAt.'
+    uri: doi: 10.1093/nar/gks1081
+  - description: Durek P, Schmidt R, Heazlewood JL, Jones A, Maclean D, Nagel A, Kersten B, Schulze WX (2010)
+    title: 'PhosPhAt: the Arabidopsis thaliana phosphorylation site database. An update.'
+    uri: doi: 10.1093/nar/gkp810
+  - description: Heazlewood JL, Durek P, Hummel J, Selbig J, Weckwerth W, Walther D, Schulze WX (2008)
+    title: 'PhosPhAt: a database of phosphorylation sites in Arabidopsis thaliana and a plant-specific phosphorylation site predictor.'
+    uri: doi: 10.1093/nar/gkm812
