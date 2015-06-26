@@ -30,7 +30,7 @@ endpoints:
         required: true
         default: At2G46830.1
       - name: search_type
-        description: If you're searching for 'experimental', 'predicted' or 'hotspot'
+        description: Kind of search to perform.
         type: string
         required: true
         default: experimental

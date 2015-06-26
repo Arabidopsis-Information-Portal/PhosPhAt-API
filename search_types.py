@@ -32,9 +32,9 @@ def experimental(phos_sites, MOD_SEQ):
         # Print all unique sequences
         mod_seqs = set(mod_seqs)
         for seq in mod_seqs:
-            temp_dict.clear()
-            temp_dict['modified_sequence'] = seq
-            print json.dumps(temp_dict) + '\n---'
+            current_data.clear()
+            current_data['modified_sequence'] = seq
+            print json.dumps(current_data) + '\n---'
 
 
 def predicted(phos_sites):
