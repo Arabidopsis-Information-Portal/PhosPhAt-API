@@ -24,7 +24,7 @@ def experimental(phos_sites, MOD_SEQ):
                 current_data['modification_type'] = expand_mod_type(p_site['modificationType'])
                 print json.dumps(current_data) + '\n---'
     else:
-        # Save all sequences for given locus
+        # Save all sequences for given transcript
         mod_seqs = []
         for p_site in phos_sites['result']:
             mod_seqs.append(p_site['modifiedsequence'].strip())

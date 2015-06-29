@@ -3,6 +3,7 @@ import search_types
 import urllib
 import requests
 import json
+import re
 
 URL = 'http://phosphat.uni-hohenheim.de/PhosPhAtHost30/productive/views/PreJsonMeth.php'
 
@@ -12,8 +13,8 @@ URL = 'http://phosphat.uni-hohenheim.de/PhosPhAtHost30/productive/views/PreJsonM
 def search(args):
     # args contains a dict with a minimum of two key:values
     # dict keys with example values:
-    # 'locus':'At1G06410.1'
-    #       --> (required) locus is an AGI code
+    # 'transcript':'AT1G06410.1'
+    #       --> (required) AGI transcript identifer. Refers to a specific protein.
     # 'search_type':'experimental'
     #       --> (required) the type of search to be performed. options are:
     #           'experimental','predicted','hotspot'
@@ -22,12 +23,19 @@ def search(args):
     #           an 'experimental' search. if it is not given and
     #           search_type = 'exprimental', then a list of sequences is returned
 
-    if not ('locus' in args and 'search_type' in args):
-        return
+    if not ('transcript' in args and 'search_type' in args):
+        raise Exception('Missing required arguments')
 
-    # PhosPhAt API requires locus to be surrounded by '%22'
+    transcript = args['transcript'].strip()
+
+    p = re.compile('^AT[1-5CM]G[0-9]{5,5}\.[0-9]{1,3}$', re.IGNORECASE)
+    if not p.search(transcript):
+       raise Exception('Not a valid transcript')
+
+
+    # PhosPhAt API requires transcript to be surrounded by '%22'
     payload = {}
-    payload['protid'] = urllib.unquote('%22' + args['locus'].upper().strip() + '%22')
+    payload['protid'] = urllib.unquote('%22' + transcript + '%22')
 
     # Perform specific search type
     if args['search_type'] == 'experimental':
@@ -35,7 +43,7 @@ def search(args):
         payload['method'] = 'getExperimentsModAa'
         r = requests.get(URL, params=payload)
         phos_sites = json.loads(r.text)
-        
+
         search_types.experimental(phos_sites, args.get('modified_sequence'))
 
     elif args['search_type'] == 'predicted':

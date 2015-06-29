@@ -2,7 +2,7 @@
 ---
 name: phosphorylation_sites
 description: "Returns experimental or predicted phosphorylation sites or phosphorylation hotspots."
-version: 0.1
+version: 0.2
 type: query
 main_module: main.py
 url: http://phosphat.uni-hohenheim.de/
@@ -24,13 +24,13 @@ authors:
 endpoints:
   /search:
     parameters:
-      - name: locus
-        description: Arabidopsis gene identifier (AGI)
+      - name: transcript
+        description: AGI Transcript Identifier.
         type: string
         required: true
-        default: At2G46830.1
+        default: AT2G46830.1
       - name: search_type
-        description: Kind of search to perform.
+        description: The kind of search to perform.
         type: string
         required: true
         default: experimental
