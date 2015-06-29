@@ -24,13 +24,13 @@ def search(args):
     #           search_type = 'exprimental', then a list of sequences is returned
 
     if not ('transcript' in args and 'search_type' in args):
-        raise Exception('Missing required arguments')
+        raise TypeError('Missing required arguments)
 
     transcript = args['transcript'].strip()
 
     p = re.compile('^AT[1-5CM]G[0-9]{5,5}\.[0-9]{1,3}$', re.IGNORECASE)
     if not p.search(transcript):
-       raise Exception('Not a valid transcript')
+        raise ValueError('Not a valid transcript')
 
 
     # PhosPhAt API requires transcript to be surrounded by '%22'
@@ -59,3 +59,6 @@ def search(args):
         phos_sites = json.loads(r.text)
 
         search_types.hotspot(phos_sites)
+
+def list(args):
+    raise Exception('Not implemented yet')

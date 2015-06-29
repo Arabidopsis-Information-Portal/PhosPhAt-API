@@ -7,7 +7,7 @@ def expand_mod_type(short_version):
         'phos_amb' : 'ambiguous phosphorylation site',
         'ox' : 'site of oxidized methionine'
     }
-    return switcher.get(short_version, 'unknown')
+    return switcher.get(short_version, short_version)
 
 # Performs an experimental search.
 def experimental(phos_sites, MOD_SEQ):
