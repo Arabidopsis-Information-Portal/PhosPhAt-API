@@ -17,9 +17,9 @@ tags:
 
 authors:
     - name: Ismail Liban
-    - email: iliban@jcvi.org
-    - sponsor_organization: JCVI
-    - sponsor_uri: http://www.jcvi.org/
+      email: iliban@jcvi.org
+      sponsor_organization: JCVI
+      sponsor_uri: http://www.jcvi.org/
 
 endpoints:
   /search:
