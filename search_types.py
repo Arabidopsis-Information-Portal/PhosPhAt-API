@@ -21,7 +21,8 @@ def experimental(phos_sites, MOD_SEQ):
                 current_data['affected_amino_acid'] = p_site['affectedAminoacid']
                 current_data['position_in_protein'] = p_site['position']
                 current_data['peptide_sequence'] = p_site['pep_sequence']
-                current_data['modification_type'] = expand_mod_type(p_site['modificationType'])
+                current_data['modification_type'] = expand_mod_type(
+                        p_site['modificationType'])
                 print json.dumps(current_data) + '\n---'
     else:
         # Save all sequences for given transcript

@@ -5,7 +5,8 @@ import requests
 import json
 import re
 
-URL = 'http://phosphat.uni-hohenheim.de/PhosPhAtHost30/productive/views/PreJsonMeth.php'
+URL = ('http://phosphat.uni-hohenheim.de/PhosPhAtHost30'
+        '/productive/views/PreJsonMeth.php')
 
 # Uses PhosPhAt API to return experimental or predicted phosphorylation sites
 # or phosphorylation hotspots when given an AGI code.
@@ -14,17 +15,19 @@ def search(args):
     # args contains a dict with a minimum of two key:values
     # dict keys with example values:
     # 'transcript':'AT1G06410.1'
-    #       --> (required) AGI transcript identifer. Refers to a specific protein.
+    #       --> (required) AGI transcript identifer.
+    #           Refers to a specific protein.
     # 'search_type':'experimental'
     #       --> (required) the type of search to be performed. options are:
     #           'experimental','predicted','hotspot'
     # 'modified_sequence':'SY(pT)NLLDLASGNFPVMGR'
-    #       --> (optional) a modified peptide sequence. should only be given if performing
-    #           an 'experimental' search. if it is not given and
-    #           search_type = 'exprimental', then a list of sequences is returned
+    #       --> (optional) a modified peptide sequence. should only be given if
+    #           performing an 'experimental' search. if it is not given and
+    #           search_type = 'exprimental', a list of sequences is returned
+    #
 
     if not ('transcript' in args and 'search_type' in args):
-        raise TypeError('Missing required arguments)
+        raise TypeError('Missing required arguments')
 
     transcript = args['transcript'].strip()
 
