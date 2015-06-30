@@ -46,22 +46,23 @@ def search(args):
         payload['method'] = 'getExperimentsModAa'
         r = requests.get(URL, params=payload)
         phos_sites = json.loads(r.text)
+        mod_seq = args.get('modified_sequence')
 
-        search_types.experimental(phos_sites, args.get('modified_sequence'))
+        search_types.print_experimental(phos_sites, mod_seq)
 
     elif args['search_type'] == 'predicted':
         payload['method'] = 'getPredictedAa'
         r = requests.get(URL, params=payload)
         phos_sites = json.loads(r.text)
 
-        search_types.predicted(phos_sites)
+        search_types.print_predicted(phos_sites)
 
     elif args['search_type'] == 'hotspot':
         payload['method'] = 'getHotspotData'
         r = requests.get(URL, params=payload)
         phos_sites = json.loads(r.text)
 
-        search_types.hotspot(phos_sites)
+        search_types.print_hotspot(phos_sites)
 
 def list(args):
     raise Exception('Not implemented yet')

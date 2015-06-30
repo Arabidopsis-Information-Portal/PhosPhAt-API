@@ -10,7 +10,7 @@ def expand_mod_type(short_version):
     return switcher.get(short_version, short_version)
 
 # Performs an experimental search.
-def experimental(phos_sites, MOD_SEQ):
+def print_experimental(phos_sites, MOD_SEQ):
 
     current_data = {}
     if MOD_SEQ is not None:
@@ -38,7 +38,7 @@ def experimental(phos_sites, MOD_SEQ):
             print json.dumps(current_data) + '\n---'
 
 
-def predicted(phos_sites):
+def print_predicted(phos_sites):
     current_data = {}
     # 13mer gives a 13char amino acid sequence, and the affected amino
     # acid is always the 7th character.
@@ -51,7 +51,7 @@ def predicted(phos_sites):
         current_data['affected_amino_acid'] = p_site['prd_13mer'][amino_acid_loc]
         print json.dumps(current_data) + '\n---'
 
-def hotspot(phos_sites):
+def print_hotspot(phos_sites):
     current_data = {}
     # Print hotspot data
     for p_site in phos_sites['result']:
