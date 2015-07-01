@@ -4,7 +4,7 @@ name: predicted_phos_sites
 description: 'Returns predicted phosphorylation sites when given an AGI code.'
 version: 0.1
 type: query
-main_module: main.py
+main_module: services/predicted_phos_sites/main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de
