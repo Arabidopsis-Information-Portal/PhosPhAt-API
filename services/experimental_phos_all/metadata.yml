@@ -1,0 +1,45 @@
+
+---
+name: experimental_phos_all
+description: 'Returns all experimental phosphorylation sites when given an AGI code.'
+version: 0.1
+type: query
+main_module: main.py
+url: http://phosphat.uni-hohenheim.de/
+whitelist:
+  - phosphat.uni-hohenheim.de
+
+tags:
+    - PhosPhAt
+    - protein
+    - dev
+    - phosphorylation
+
+authors:
+    - name: Ismail Liban
+      email: iliban@jcvi.org
+      sponsor_organization: JCVI
+      sponsor_uri: http://www.jcvi.org/
+
+endpoints:
+  /search:
+    parameters:
+      - name: transcript
+        description: AGI Transcript Identifier.
+        type: string
+        required: true
+        default: AT2G46830.1
+
+sources:
+  - title: The Arabidopsis Protein Phosphorylation Site Database (PhosPhAt)
+    description: 'PhosPhAt contains information on Arabidopsis phosphorylation sites.'
+    uri: http://phosphat.uni-hohenheim.de/
+  - title: 'PhosPhAt goes kinases – Searchable protein kinase target information in the plant phosphorylation site database PhosPhAt.'
+    description: Zulawski M, Braginets R, Schulze WX (2013)
+    uri: 'doi: 10.1093/nar/gks1081'
+  - title: 'PhosPhAt: the Arabidopsis thaliana phosphorylation site database. An update.'
+    description: Durek P, Schmidt R, Heazlewood JL, Jones A, Maclean D, Nagel A, Kersten B, Schulze WX (2010)
+    uri: 'doi: 10.1093/nar/gkp810'
+  - title: 'PhosPhAt: a database of phosphorylation sites in Arabidopsis thaliana and a plant-specific phosphorylation site predictor.'
+    description: Heazlewood JL, Durek P, Hummel J, Selbig J, Weckwerth W, Walther D, Schulze WX (2008)
+    uri: 'doi: 10.1093/nar/gkm812'
