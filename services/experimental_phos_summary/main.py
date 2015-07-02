@@ -27,6 +27,10 @@ def search(args):
         current_phos['modified_sequence_id'] = p_site['pep_id']
         phos_summary.append(current_phos)
 
+    # Remove duplicates in list by changing values from: dict->tuple->set->dict
+    phos_summary = [dict(t) for t in set(
+                            [tuple(d.items()) for d in phos_summary])]
+    
     tools.print_data(phos_summary)
 
 
