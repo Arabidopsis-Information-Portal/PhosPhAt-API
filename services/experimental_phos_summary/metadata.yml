@@ -4,7 +4,7 @@ name: experimental_phos_summary
 description: 'Returns a summary of experimental phosphorylation sites when given an AGI code.'
 version: 0.1
 type: query
-main_module: services/experimental_phos_summary/main.py
+main_module: services.experimental_phos_summary.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de

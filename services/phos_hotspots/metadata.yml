@@ -4,7 +4,7 @@ name: phos_hotspots
 description: 'Returns phosphorylation hotspots when given an AGI code.'
 version: 0.1
 type: query
-main_module: services/phos_hotspots/main.py
+main_module: services.phos_hotspots.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de

@@ -4,7 +4,7 @@ name: experimental_phos_details
 description: 'Returns detailed experimental phosphorylation sites for a specific modified peptide sequence.'
 version: 0.1
 type: query
-main_module: services/experimental_phos_details/main.py
+main_module: services.experimental_phos_details.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de
