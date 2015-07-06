@@ -3,7 +3,6 @@ import services.common.tools as tools
 
 
 API_METHOD = 'getExperimentsModAa'
-CHECK_MOD_SEQ = True
 
 def search(args):
     """Uses PhosPhAt API to return detailed experimental phosphorylation sites
