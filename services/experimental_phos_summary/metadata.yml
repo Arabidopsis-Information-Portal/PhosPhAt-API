@@ -1,7 +1,7 @@
 
 ---
 name: experimental_phos_summary
-description: 'Returns a summary of experimental phosphorylation sites when given an AGI code.'
+description: 'Returns the modified sequence of experimental phosphorylation sites.'
 version: 0.1
 type: query
 main_module: services.experimental_phos_summary.main.py
