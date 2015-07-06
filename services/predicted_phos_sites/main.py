@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import services.common.tools as tools
 
-
 API_METHOD = 'getPredictedAa'
 
 def search(args):
@@ -12,23 +11,18 @@ def search(args):
         transcript: AGI transcript identifer. Refers to a specific protein.
             Example value: 'AT1G06410.1'
     """
-
     tools.validate_args(args)
 
     filtered_phos_sites = []
     phos_sites = tools.request_data(args['transcript'], API_METHOD)
 
     for p in phos_sites['result']:
-        # Rename keys
-        p['position_in_protein'] = p.pop('prd_position')
-        p['prediction_score'] = p.pop('prd_score')
-        p['13mer_sequence'] = p.pop('prd_13mer')
-        # Remove excess data
-        p.pop('prd_id')
-        p.pop('prd_protein')
-        p.pop('prd_type')
-        # Add data to list
-        filtered_phos_sites.append(p)
+        extracted_data = {}
+        extracted_data['position_in_protein'] = p['prd_position']
+        extracted_data['prediction_score'] = p['prd_score']
+        extracted_data['13mer_sequence'] = p['prd_13mer']
+
+        filtered_phos_sites.append(extracted_data)
 
     tools.print_data(filtered_phos_sites)
 

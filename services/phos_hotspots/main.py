@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import services.common.tools as tools
 
-
 API_METHOD = 'getHotspotData'
 
 def search(args):
@@ -19,14 +18,12 @@ def search(args):
     hotspots = tools.request_data(args['transcript'], API_METHOD)
 
     for h in hotspots['result']:
-        # Rename desired keys
-        h['hotspot_sequence'] = h.pop('hsp_hotspot_sequenz')
-        h['start_position'] = h.pop('hsp_hotspot_start')
-        h['end_position'] = h.pop('hsp_hotspot_stop')
-        # Remove excess data
-        h.pop('hsp_hotspot_score')
-        # Add data to list
-        filtered_hotspots.append(h)
+        extracted_data = {}
+        extracted_data['hotspot_sequence'] = h['hsp_hotspot_sequenz']
+        extracted_data['start_position'] = h['hsp_hotspot_start']
+        extracted_data['end_position'] = h['hsp_hotspot_stop']
+
+        filtered_hotspots.append(extracted_data)
 
     tools.print_data(filtered_hotspots)
 

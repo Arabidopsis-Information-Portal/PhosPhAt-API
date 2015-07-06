@@ -6,7 +6,6 @@ import re
 API_BASE_URL = ('http://phosphat.uni-hohenheim.de/PhosPhAtHost30'
         '/productive/views/PreJsonMeth.php')
 
-
 def request_data(transcript, api_method):
     """Returns data from an API call to PhosPhAt.
 
@@ -25,7 +24,6 @@ def request_data(transcript, api_method):
     response = requests.get(API_BASE_URL, params=payload)
     return json.loads(response.text)
 
-
 def print_data(data):
     """Prints out data as a string of JSON objects.
 
@@ -35,7 +33,6 @@ def print_data(data):
     if data is not None:
         for d in data:
             print json.dumps(d) + '\n---'
-
 
 def validate_args(args):
     """Validates a transcript given a dict of arguments.
@@ -47,7 +44,6 @@ def validate_args(args):
         TypeError: If 'transcript' is not found in 'args'.
         ValueError: If 'transcript' is given but invalid.
     """
-
     if not ('transcript' in args):
         raise TypeError('Missing required argument (transcript)')
 
@@ -56,7 +52,6 @@ def validate_args(args):
 
     if not p.search(transcript):
         raise ValueError('Not a valid transcript')
-        
 
 def expand_mod_type(short_version):
     """Swaps modification type to a human readable version.
