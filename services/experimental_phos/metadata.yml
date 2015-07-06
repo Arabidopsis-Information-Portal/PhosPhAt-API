@@ -4,7 +4,7 @@ name: experimental_phos
 description: 'Returns experimental phosphorylation sites.'
 version: 0.1
 type: query
-main_module: services.experimental_phos_details.main.py
+main_module: services.experimental_phos.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de

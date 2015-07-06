@@ -33,6 +33,7 @@ endpoints:
         description: Modified peptide sequence.
         type: string
         required: true
+        default: L(oxM)(pS)RGR(pT)GFKPYK
 
 
 sources:
