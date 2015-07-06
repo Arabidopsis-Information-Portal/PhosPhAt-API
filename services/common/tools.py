@@ -33,8 +33,8 @@ def validate_args(args, mod_seq=False):
     if not p.search(transcript):
         raise ValueError('Not a valid transcript')
     if mod_seq:
-        if ('modified_sequence_id' not in args):
-            raise TypeError('Missing required argument (modified_sequence_id)')
+        if ('modified_sequence' not in args):
+            raise TypeError('Missing required argument (modified_sequence)')
 
 
 

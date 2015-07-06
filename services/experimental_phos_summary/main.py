@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import re
 import services.common.tools as tools
+import json
 
 
 API_METHOD = 'getExperimentsModAa'
@@ -18,21 +18,13 @@ def search(args):
 
     phos_sites = tools.request_data(args['transcript'], API_METHOD)
 
-    phos_summary = []
+    phos_summary = {}
 
     for p_site in phos_sites['result']:
         # Save modified sequences and peptide ids
-        current_phos = {}
-        current_phos['modified_sequence'] = p_site['modifiedsequence']
-        current_phos['modified_sequence_id'] = p_site['pep_id']
-        phos_summary.append(current_phos)
+        phos_summary[p_site['pep_id']] = p_site['modifiedsequence']
 
-    # Remove duplicates in list by changing values from: dict->tuple->set->dict
-    phos_summary = [dict(t) for t in set(
-                            [tuple(d.items()) for d in phos_summary])]
-    
-    tools.print_data(phos_summary)
-
+    print json.dumps(phos_summary) + '\n---'
 
 def list(args):
     raise Exception('Not implemented yet')

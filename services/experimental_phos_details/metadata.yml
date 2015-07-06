@@ -29,8 +29,8 @@ endpoints:
         type: string
         required: true
         default: AT2G46830.1
-      - name: modified_sequence_id
-        description: Modified peptide sequence id.
+      - name: modified_sequence
+        description: Modified peptide sequence.
         type: string
         required: true
 

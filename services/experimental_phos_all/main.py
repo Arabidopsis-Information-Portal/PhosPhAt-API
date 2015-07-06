@@ -26,7 +26,6 @@ def search(args):
         current_phos['position_in_protein'] = p_site['position']
         current_phos['modification_type'] = tools.expand_mod_type(
                 p_site['modificationType'])
-        current_phos['modified_sequence_id'] = p_site['pep_id']
         phos_summary.append(current_phos)
 
     tools.print_data(phos_summary)

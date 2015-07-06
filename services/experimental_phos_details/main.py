@@ -3,9 +3,9 @@ import services.common.tools as tools
 
 
 API_METHOD = 'getExperimentsModAa'
-CHECK_MOD_SEQ_ID = True
+CHECK_MOD_SEQ = True
 # Uses PhosPhAt API to return detailed experimental phosphorylation sites
-# given a modified peptide sequence id.
+# given a modified peptide sequence.
 
 def search(args):
     # args contains a dict 2 key:value pairs
@@ -13,21 +13,20 @@ def search(args):
     # 'transcript':'AT1G06410.1'
     #       --> (required) AGI transcript identifer.
     #           Refers to a specific protein.
-    # 'modified_sequence_id':'8e32e008-0404-4b84-815b-0bac83e0f2a9'
-    #       --> (required) refers to a modified peptide sequence
+    # 'modified_sequence':'(s)(y)(t)NLLDLA(s)GNFPV(oxM)GR'
+    #       --> (required) narrows results to those matching sequence
     #
 
-    tools.validate_args(args, CHECK_MOD_SEQ_ID)
+    tools.validate_args(args, CHECK_MOD_SEQ)
 
     phos_sites = tools.request_data(args['transcript'], API_METHOD)
 
     phos_details = []
     for p_site in phos_sites['result']:
-        if args['modified_sequence_id'] == p_site['pep_id']:
+        if args['modified_sequence'] == p_site['modifiedsequence']:
             # Save all relevant data
             current_phos = {}
             current_phos['peptide_sequence'] = p_site['pep_sequence']
-            current_phos['modified_sequence'] = p_site['modifiedsequence']
             current_phos['position_in_protein'] = p_site['position']
             current_phos['modification_type'] = tools.expand_mod_type(
                     p_site['modificationType'])
