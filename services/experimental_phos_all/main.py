@@ -3,16 +3,15 @@ import services.common.tools as tools
 
 
 API_METHOD = 'getExperimentsModAa'
-# Uses PhosPhAt API to return all experimental phosphorylation sites.
-
 
 def search(args):
-    # args contains a dict a single key:value pair
-    # dict key with example value:
-    # 'transcript':'AT1G06410.1'
-    #       --> (required) AGI transcript identifer.
-    #           Refers to a specific protein.
+    """Uses PhosPhAt API to return all experimental phosphorylation sites.
 
+    Args:
+        All arguments are stored in a single dict.
+        transcript: AGI transcript identifer. Refers to a specific protein.
+            Example value: 'AT1G06410.1'
+    """
     tools.validate_args(args)
 
     phos_sites = tools.request_data(args['transcript'], API_METHOD)

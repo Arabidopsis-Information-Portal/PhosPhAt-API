@@ -3,15 +3,15 @@ import services.common.tools as tools
 
 
 API_METHOD = 'getPredictedAa'
-# Uses PhosPhAt API to get predicted phosphorylation sites.
 
 def search(args):
-    # args contains a dict with a single key:value pair
-    # dict key with example value:
-    # 'transcript':'AT1G06410.1'
-    #       --> (required) AGI transcript identifer.
-    #           Refers to a specific protein.
+    """Uses PhosPhAt API to get predicted phosphorylation sites.
 
+    Args:
+        All arguments are stored in a single dict.
+        transcript: AGI transcript identifer. Refers to a specific protein.
+            Example value: 'AT1G06410.1'
+    """
 
     tools.validate_args(args)
 

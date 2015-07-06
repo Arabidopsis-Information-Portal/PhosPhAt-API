@@ -3,15 +3,16 @@ import services.common.tools as tools
 
 
 API_METHOD = 'getHotspotData'
-# Uses PhosPhAt API to return phosphorylation hotspots when given an AGI code.
 
 def search(args):
-    # args contains a dict with a single key:value pair
-    # dict key with example value:
-    # 'transcript':'AT1G06410.1'
-    #       --> (required) AGI transcript identifer.
-    #           Refers to a specific protein.
+    """Uses PhosPhAt API to return phosphorylation hotspots when given
+    an AGI code.
 
+    Args:
+        All arguments are stored in a single dict.
+        transcript: AGI transcript identifer. Refers to a specific protein.
+            Example value: 'AT1G06410.1'
+    """
     tools.validate_args(args)
 
     filtered_hotspots = []
