@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import services.common.tools as tools
 
+# Specifies kind of data to retrieve from PhosPhAt
 API_METHOD = 'getHotspotData'
 
 def search(args):
@@ -15,16 +16,19 @@ def search(args):
     tools.validate_args(args)
 
     filtered_hotspots = []
+    # Saves dict of hotspots retrieved from API call
     hotspots = tools.request_data(args['transcript'], API_METHOD)
 
+    # hotspots['result'] refers to a dict within hotspots that stores the data
     for h in hotspots['result']:
         extracted_data = {}
         extracted_data['hotspot_sequence'] = h['hsp_hotspot_sequenz']
         extracted_data['start_position'] = h['hsp_hotspot_start']
         extracted_data['end_position'] = h['hsp_hotspot_stop']
-
+        # Add the dict containing the extracted data to a list
         filtered_hotspots.append(extracted_data)
 
+    # Print the dicts with the extracted data
     tools.print_data(filtered_hotspots)
 
 def list(args):

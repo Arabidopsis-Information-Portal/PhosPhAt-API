@@ -3,6 +3,7 @@ import requests
 import json
 import re
 
+# Original url on which all parameters are added.
 API_BASE_URL = ('http://phosphat.uni-hohenheim.de/PhosPhAtHost30'
         '/productive/views/PreJsonMeth.php')
 
@@ -16,11 +17,13 @@ def request_data(transcript, api_method):
     Returns:
         A dict deserialized from a JSON object.
     """
+    # payload is a dict of arguments to be added to the url
     payload = {}
-    # TODO: Find a neater way to encapsulate transcript in '%22'
-    payload['protid'] = urllib.unquote('%22' + transcript + '%22')
+    # The API requires transcript to be surrounded by quotes.
+    payload['protid'] = '"' + transcript + '"'
     payload['method'] = api_method
 
+    # Combine base url with parameters and return data
     response = requests.get(API_BASE_URL, params=payload)
     return json.loads(response.text)
 
@@ -32,6 +35,7 @@ def print_data(data):
     """
     if data is not None:
         for d in data:
+            # Convert each dict into a JSON object, then print
             print json.dumps(d) + '\n---'
 
 def validate_args(args):
@@ -44,12 +48,14 @@ def validate_args(args):
         TypeError: If 'transcript' is not found in 'args'.
         ValueError: If 'transcript' is given but invalid.
     """
+    # Verify if transcript was given
     if not ('transcript' in args):
         raise TypeError('Missing required argument (transcript)')
 
     transcript = args['transcript'].strip()
-    p = re.compile('^AT[1-5CM]G[0-9]{5,5}\.[0-9]{1,3}$', re.IGNORECASE)
 
+    # Verify transcript is actually valid by checking its format
+    p = re.compile('^AT[1-5CM]G[0-9]{5,5}\.[0-9]{1,3}$', re.IGNORECASE)
     if not p.search(transcript):
         raise ValueError('Not a valid transcript')
 
@@ -68,4 +74,6 @@ def expand_mod_type(short_version):
         'phos_amb' : 'ambiguous phosphorylation site',
         'ox' : 'site of oxidized methionine'
     }
+    # Used switcher.get('key') over switcher['key'] to prevent a KeyError.
+    # The second parameter is the value returned in case the key can't be found.
     return switcher.get(short_version, short_version)
