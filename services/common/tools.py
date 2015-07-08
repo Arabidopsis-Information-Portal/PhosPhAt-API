@@ -25,6 +25,8 @@ def request_data(transcript, api_method):
 
     # Combine base url with parameters and return data
     response = requests.get(API_BASE_URL, params=payload)
+    if response.status_code != 200:
+        raise Exception('Can\'t connect to server. Status code: ' + response.status_code)
     return json.loads(response.text)
 
 def print_data(data):

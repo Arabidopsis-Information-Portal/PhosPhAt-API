@@ -29,11 +29,6 @@ endpoints:
         type: string
         required: true
         default: AT1G06410.1
-      - name: modified_sequence
-        description: Modified peptide sequence.
-        type: string
-        required: false
-
 
 sources:
   - title: The Arabidopsis Protein Phosphorylation Site Database (PhosPhAt)
