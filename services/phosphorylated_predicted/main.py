@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import services.common.tools as tools
+import json
 
 # Specify kind of data to retrieve from PhosPhAt
 API_METHOD = 'getPredictedAa'
@@ -24,11 +25,7 @@ def search(args):
         extracted_data['position_in_protein'] = p['prd_position']
         extracted_data['prediction_score'] = p['prd_score']
         extracted_data['13mer_sequence'] = p['prd_13mer']
-        # Add the dict containing the extracted data to a list
-        filtered_phos_sites.append(extracted_data)
-
-    # Print the dicts with the extracted data
-    tools.print_data(filtered_phos_sites)
+        print json.dumps(extracted_data) + '\n---'
 
 def list(args):
     raise Exception('Not implemented yet')

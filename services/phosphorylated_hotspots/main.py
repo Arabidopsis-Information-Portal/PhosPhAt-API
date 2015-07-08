@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import services.common.tools as tools
-
+import json
 # Specifies kind of data to retrieve from PhosPhAt
 API_METHOD = 'getHotspotData'
 
@@ -25,11 +25,8 @@ def search(args):
         extracted_data['hotspot_sequence'] = h['hsp_hotspot_sequenz']
         extracted_data['start_position'] = h['hsp_hotspot_start']
         extracted_data['end_position'] = h['hsp_hotspot_stop']
-        # Add the dict containing the extracted data to a list
-        filtered_hotspots.append(extracted_data)
+        print json.dumps(extracted_data) + '\n---'
 
-    # Print the dicts with the extracted data
-    tools.print_data(filtered_hotspots)
 
 def list(args):
     raise Exception('Not implemented yet')
