@@ -31,8 +31,8 @@ endpoints:
         default: AT1G06410.1
 
 sources:
-  - title: PhosPhAt
-    description: 'Contains information on Arabidopsis phosphorylation sites.'
+  - title: The Arabidopsis Protein Phosphorylation Site Database (PhosPhAt)
+    description: 'PhosPhAt contains information on Arabidopsis phosphorylation sites.'
+    uri: http://phosphat.uni-hohenheim.de/
     provider_name: Waltraud Schulze
     sponsor_organization_name: PhosPhAt
-    uri: http://phosphat.uni-hohenheim.de/
