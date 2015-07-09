@@ -24,7 +24,7 @@ authors:
 endpoints:
   /search:
     parameters:
-      - name: transcript
+      - name: transcript_id
         description: AGI Transcript Identifier.
         type: string
         required: true

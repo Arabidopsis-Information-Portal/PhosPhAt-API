@@ -10,14 +10,14 @@ def search(args):
 
     Args:
         All arguments are stored in a single dict.
-        transcript: AGI transcript identifer. Refers to a specific protein.
+        transcript_id: AGI Transcript Identifier. Refers to a specific protein.
             Example value: 'AT1G06410.1'
     """
     tools.validate_args(args)
 
     filtered_hotspots = []
     # Saves dict of hotspots retrieved from API call
-    hotspots = tools.request_data(args['transcript'], API_METHOD)
+    hotspots = tools.request_data(args['transcript_id'], API_METHOD)
 
     # hotspots['result'] refers to a dict within hotspots that stores the data
     for h in hotspots['result']:

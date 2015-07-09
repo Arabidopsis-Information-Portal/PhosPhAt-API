@@ -10,13 +10,13 @@ def search(args):
 
     Args:
         All arguments are stored in a single dict.
-        transcript: AGI transcript identifer. Refers to a specific protein.
+        transcript_id: AGI Transcript Identifier. Refers to a specific protein.
             Example value: 'AT1G06410.1'
     """
     tools.validate_args(args)
 
     # Save dict of phosphorylation sites retrieved from API call
-    phos_sites = tools.request_data(args['transcript'], API_METHOD)
+    phos_sites = tools.request_data(args['transcript_id'], API_METHOD)
 
     filtered_phos_sites = []
     # phos_sites['result'] refers to a dict in phos_sites that has the data

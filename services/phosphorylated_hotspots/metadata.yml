@@ -25,7 +25,7 @@ authors:
 endpoints:
   /search:
     parameters:
-      - name: transcript
+      - name: transcript_id
         description: AGI Transcript Identifier.
         type: string
         required: true
@@ -35,4 +35,3 @@ sources:
   - title: The Arabidopsis Protein Phosphorylation Site Database (PhosPhAt)
     description: 'PhosPhAt contains information on Arabidopsis phosphorylation sites.'
     uri: http://phosphat.uni-hohenheim.de/
-  
