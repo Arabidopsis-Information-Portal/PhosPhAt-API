@@ -35,4 +35,4 @@ sources:
     description: 'PhosPhAt contains information on Arabidopsis phosphorylation sites.'
     uri: http://phosphat.uni-hohenheim.de/
     provider_name: Waltraud Schulze
-    sponsor_organization_name: PhosPhAt
+    #sponsor_organization_name: PhosPhAt
