@@ -32,7 +32,7 @@ endpoints:
 
 sources:
   - title: PhosPhAt
-    description: Contains information on Arabidopsis phosphorylation sites.
+    description: 'Contains information on Arabidopsis phosphorylation sites.'
     provider_name: Waltraud Schulze
     sponsor_organization_name: PhosPhAt
     uri: http://phosphat.uni-hohenheim.de/
