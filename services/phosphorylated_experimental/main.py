@@ -1,9 +1,11 @@
 #!/usr/bin/env python
-import services.common.tools as tools
-import json
+import services.common.tools as tools # Custom module for shared functions
+import json # Allows conversion to and from json
+
 # Specify kind of data to retrieve from PhosPhAt
 API_METHOD = 'getExperimentsModAa'
 
+# search function is required by Adama
 def search(args):
     """Uses PhosPhAt API to return detailed experimental phosphorylation sites
         given a modified peptide sequence.
@@ -17,7 +19,6 @@ def search(args):
     # Save dict of phosphorylation sites retrieved from API call
     phos_sites = tools.request_data(args['transcript_id'], API_METHOD)
 
-    phos_details = []
     # phos_sites['result'] refers to a dict in phos_sites that has the data
     for p_site in phos_sites['result']:
         extracted_data = {}
@@ -30,7 +31,9 @@ def search(args):
         # Call tools.expand_mod_type() to make returned data more comprehensible
         extracted_data['modification_type'] = tools.expand_mod_type(
                 p_site['modificationType'])
+        # Adama requires JSON objects be separated by three dashes
         print json.dumps(extracted_data) + '\n---'
 
+# list function is required by Adama
 def list(args):
     raise Exception('Not implemented yet')

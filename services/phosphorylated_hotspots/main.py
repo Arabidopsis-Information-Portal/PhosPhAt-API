@@ -1,9 +1,11 @@
 #!/usr/bin/env python
-import services.common.tools as tools
-import json
+import services.common.tools as tools # Custom module for shared functions
+import json # Allows conversion to and from json
+
 # Specifies kind of data to retrieve from PhosPhAt
 API_METHOD = 'getHotspotData'
 
+# search function is required by Adama
 def search(args):
     """Uses PhosPhAt API to return phosphorylation hotspots when given
     an AGI code.
@@ -15,7 +17,6 @@ def search(args):
     """
     tools.validate_args(args)
 
-    filtered_hotspots = []
     # Saves dict of hotspots retrieved from API call
     hotspots = tools.request_data(args['transcript_id'], API_METHOD)
 
@@ -25,8 +26,9 @@ def search(args):
         extracted_data['hotspot_sequence'] = h['hsp_hotspot_sequenz']
         extracted_data['start_position'] = h['hsp_hotspot_start']
         extracted_data['end_position'] = h['hsp_hotspot_stop']
+        # Adama requires JSON objects be separated by three dashes
         print json.dumps(extracted_data) + '\n---'
 
-
+# list function is required by Adama
 def list(args):
     raise Exception('Not implemented yet')

@@ -1,7 +1,6 @@
-import urllib
-import requests
-import json
-import re
+import requests # Allows for HTTP requests to be made
+import json # Allows conversion to and from json
+import re # Allows for the use of regular expressions
 
 # Original url on which all parameters are added.
 API_BASE_URL = ('http://phosphat.uni-hohenheim.de/PhosPhAtHost30'
@@ -25,20 +24,9 @@ def request_data(transcript_id, api_method):
 
     # Combine base url with parameters and return data
     response = requests.get(API_BASE_URL, params=payload)
-    if response.status_code != 200:
-        raise Exception('Can\'t connect to server. Status code: ' + response.status_code)
+    # Verify that a response was actually recieved.
+    response.raise_for_status()
     return json.loads(response.text)
-
-def print_data(data):
-    """Prints out data as a string of JSON objects.
-
-    Args:
-        data: A list of dicts.
-    """
-    if data is not None:
-        for d in data:
-            # Convert each dict into a JSON object, then print
-            print json.dumps(d) + '\n---'
 
 def validate_args(args):
     """Validates a transcript_id given a dict of arguments.
