@@ -37,3 +37,16 @@ sources:
     provider_name: Waltraud Schulze
     sponsor_organization_name: University of Hohenheim
     sponsor_uri: https://www.uni-hohenheim.de
+    sources:
+      - title: Kinase-Target interactions
+        description: PhosPhAt goes kinases – Searchable protein kinase target information in the plant phosphorylation site database PhosPhAt.
+        uri: http://www.ncbi.nlm.nih.gov/pubmed/23172287
+        provider_name: Zulawski M, Braginets R, Schulze WX
+      - title: Phosphorylation site database and predictor
+        description: PhosPhAt: the Arabidopsis thaliana phosphorylation site database. An update.
+        uri: http://www.ncbi.nlm.nih.gov/pubmed/19880383
+        provider_name: Durek P, Schmidt R, Heazlewood JL, Jones A, Maclean D, Nagel A, Kersten B, Schulze WX
+      - title: Original Phosphorylation site database
+        description: PhosPhAt: A Database of phosphorylation sites in Arabidopsis thaliana and a plant specific phosphorylation site predictor.
+        uri: http://www.ncbi.nlm.nih.gov/pubmed/17984086
+        provider_name: Heazlewood JL, Durek P, Hummel J, Selbig J, Weckwerth W, Walther D, Schulze WX
