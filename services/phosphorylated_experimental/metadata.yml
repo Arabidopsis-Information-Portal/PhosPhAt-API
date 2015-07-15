@@ -2,7 +2,7 @@
 ---
 name: phosphorylated_experimental
 description: 'Experimental phosphorylation sites from PhosPhAt.'
-version: 0.1
+version: 1.0
 type: query
 main_module: services.phosphorylated_experimental.main.py
 url: http://phosphat.uni-hohenheim.de/
