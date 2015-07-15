@@ -28,6 +28,7 @@ def search(args):
         # PhosPhAt is in Germany and uses commas instead of decimal points
         extracted_data['mass'] = p_site['mass'].replace(",", ".")
         extracted_data['position_in_peptide'] = p_site['position']
+        extracted_data['modification_code'] = p_site['modificationType']
         # Call tools.expand_mod_type() to make returned data more comprehensible
         extracted_data['modification_type'] = tools.expand_mod_type(
                 p_site['modificationType'])
