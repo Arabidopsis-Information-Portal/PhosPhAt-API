@@ -29,8 +29,8 @@ def search(args):
         # Adama requires JSON objects be separated by three dashes
         print json.dumps(extracted_data) + '\n---'
 
-# Returns a list of valid transcript IDs 
+# Returns a list of valid transcript IDs
 def list(args):
-    with open('hotspot_transcripts.txt') as f:
+    with open('services/phosphorylated_hotspots/hotspot_transcripts.txt') as f:
         valid_transcripts = f.readlines()
     print json.dumps(valid_transcripts)
