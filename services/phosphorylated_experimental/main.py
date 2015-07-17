@@ -37,4 +37,5 @@ def search(args):
 
 # list function is required by Adama
 def list(args):
-    raise Exception('Not implemented yet')
+    with open('experimental_transcripts.txt') as f:
+        valid_transcripts = f.readlines()
