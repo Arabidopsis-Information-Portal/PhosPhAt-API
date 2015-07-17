@@ -31,6 +31,8 @@ endpoints:
         type: string
         required: true
         default: AT1G06410.1
+  /list:
+    description: 'Returns a list transcript IDs that PhosPhAt has hotspot data on.'
 
 sources:
   - title: PhosPhAt

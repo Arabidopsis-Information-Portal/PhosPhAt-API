@@ -28,7 +28,7 @@ def search(args):
         # Adama requires JSON objects be separated by three dashes
         print json.dumps(extracted_data) + '\n---'
 
-# list function is required by Adama
+# Returns a list of valid transcript IDs 
 def list(args):
     with open('predicted_transcripts.txt') as f:
         valid_transcripts = f.readlines()
