@@ -1,6 +1,7 @@
 import requests # Allows for HTTP requests to be made
 import json # Allows conversion to and from json
 import tools # Custom module allowing access to PhosPhAt API
+from requests.exceptions import ConnectionError
 
 # Specify kind of data to retrieve from PhosPhAt
 API_METHOD = 'getExperimentsModAa'
@@ -30,11 +31,17 @@ def main():
     # Extract the list of transcripts
     all_transcripts = protein_api_result['result'][0]
 
+
     with open('valid_transcripts.txt', 'w') as f:
         for transcript in all_transcripts:
-            phosphat_response = tools.request_data(transcript, API_METHOD)
-            if phosphat_response['result']: # If result is not empty
-                print>>f, transcript
+            try:
+                phosphat_response = tools.request_data(transcript, API_METHOD)
+                if phosphat_response['result']: # If result is not empty
+                    print>>f, transcript
+            except ConnectionError:
+                print "EXCEPTION ON:" + transcript
+
+
 
 if __name__ == '__main__':
     main()

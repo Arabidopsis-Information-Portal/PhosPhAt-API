@@ -26,6 +26,7 @@ def request_data(transcript_id, api_method):
     response = requests.get(API_BASE_URL, params=payload)
     # Verify that a response was actually recieved.
     response.raise_for_status()
+
     return json.loads(response.text)
 
 def validate_args(args):
