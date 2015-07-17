@@ -23,12 +23,15 @@ authors:
 
 endpoints:
   /search:
+    description: 'Returns a list of JSON objects containing experimentally determined phosphorylation data from PhosPhAt.'
     parameters:
       - name: transcript_id
         description: AGI Transcript Identifier.
         type: string
         required: true
         default: AT1G06410.1
+  /list:
+    description: 'Returns a list transcript IDs that PhosPhAt has experimentally determined phosphorylation data on.'
 
 sources:
   - title: PhosPhAt

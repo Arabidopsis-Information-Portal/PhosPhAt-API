@@ -24,6 +24,7 @@ authors:
 
 endpoints:
   /search:
+    description: 'Returns a list of JSON objects containing data on peptide sequences where phosphorylation is likely to occur.'
     parameters:
       - name: transcript_id
         description: AGI Transcript Identifier.
