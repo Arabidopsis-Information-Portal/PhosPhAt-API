@@ -39,3 +39,4 @@ def search(args):
 def list(args):
     with open('experimental_transcripts.txt') as f:
         valid_transcripts = f.readlines()
+    print json.dumps(valid_transcripts)
