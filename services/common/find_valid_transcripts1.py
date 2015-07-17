@@ -3,6 +3,8 @@ import json # Allows conversion to and from json
 import tools # Custom module allowing access to PhosPhAt API
 from requests.exceptions import ConnectionError
 from threading import Thread
+import threading
+import thread
 # Specify kind of data to retrieve from PhosPhAt
 API_METHOD = 'getExperimentsModAa'
 
@@ -11,19 +13,21 @@ PROTEIN_API_URL = ('https://api.araport.org/community/v0.3/jk-dev/'
         'protein_api_v0.1/list')
 
 # Adama requires a token to access their API
-TOKEN = '29f28472195bbd2c28ffb4c9360ab81'
+TOKEN = 'b844c42e6de0e476f8eea4a06baa212b'
 
+lock = threading.Lock()
 
-
-f = ''
-
-def blah(transcript):
-    #try:
-    phosphat_response = tools.request_data(transcript, API_METHOD)
-    if phosphat_response['result']: # If result is not empty
-        f.write(transcript+'\n')
-    #except ConnectionError:
-    #    print "EXCEPTION ON:" + transcript
+def blah(transcript, f):
+    try:
+        phosphat_response = tools.request_data(transcript, API_METHOD)
+        if phosphat_response['result']: # If result is not empty
+            f.write(transcript+'\n')
+    except Exception as e:
+        lock.acquire()
+        print e.__str__() + "\n ----"
+        lock.release()
+        #thread.interrupt_main()
+        #print "EXCEPTION ON:" + transcript
 
 
 
@@ -37,9 +41,8 @@ def main():
     """
 
     # Retrieve a JSON object containing a list of all possible transcripts.
-    protein_api_result = requests.get(PROTEIN_API_URL, headers={'Authorization': 'Bearer ' + TOKEN })
-    protein_api_result.raise_for_status()
-    protein_api_result = json.loads(protein_api_result.text)
+    protein_api_result = open('protein_list.txt','r').read()
+    protein_api_result = json.loads(protein_api_result)
 
     # Extract the list of transcripts
     all_transcripts = protein_api_result['result'][0]
@@ -48,14 +51,14 @@ def main():
 
     f = open('valid_transcripts1.txt', 'w')
     for transcript in all_transcripts:
-        thread = Thread(target = blah, args={transcript,})
-        thread.start()
-        thread_list.append(thread)
+        thread1 = Thread(target = blah, args=[transcript, f])
+        thread1.start()
+        thread_list.append(thread1)
 
 
-    for thread in thread_list:
-        thread.join()
-
+    for thread1 in thread_list:
+        thread1.join()
+        print 'done'
     f.close()
 
 if __name__ == '__main__':
