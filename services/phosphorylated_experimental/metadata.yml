@@ -11,15 +11,15 @@ whitelist:
   - phosphat.uni-hohenheim.de
 
 tags:
-    - PhosPhAt
-    - protein
-    - phosphorylation
+  - PhosPhAt
+  - protein
+  - phosphorylation
 
 authors:
-    - name: Ismail Liban
-      email: iliban@jcvi.org
-      sponsor_organization: JCVI
-      sponsor_uri: http://www.jcvi.org/
+  - name: Ismail Liban
+    email: iliban@jcvi.org
+    sponsor_organization: JCVI
+    sponsor_uri: http://www.jcvi.org/
 
 endpoints:
   /search:
@@ -31,7 +31,7 @@ endpoints:
         required: true
         default: AT1G06410.1
   /list:
-    description: 'Returns a list transcript IDs that PhosPhAt has experimentally determined phosphorylation data on.'
+    description: 'Returns a list of transcript IDs that PhosPhAt has experimentally determined phosphorylation data for.'
 
 sources:
   - title: PhosPhAt

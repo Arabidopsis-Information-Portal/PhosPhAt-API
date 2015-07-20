@@ -24,7 +24,7 @@ def request_data(transcript_id, api_method):
 
     # Combine base url with parameters and return data
     response = requests.get(API_BASE_URL, params=payload)
-    # Verify that a response was actually recieved.
+    # Verify that a response was actually received.
     response.raise_for_status()
     return json.loads(response.text)
 
