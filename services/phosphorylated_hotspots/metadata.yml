@@ -2,7 +2,7 @@
 ---
 name: phosphorylated_hotspots
 description: 'Phosphorylation hotspots from PhosPhAt.'
-version: 0.1
+version: 0.2
 type: query
 icon: phosphat_logo.png
 main_module: services.phosphorylated_hotspots.main.py
@@ -13,7 +13,6 @@ whitelist:
 tags:
     - PhosPhAt
     - protein
-    - dev
     - phosphorylation
     - hotspots
 

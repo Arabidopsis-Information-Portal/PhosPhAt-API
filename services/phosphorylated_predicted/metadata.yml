@@ -2,7 +2,7 @@
 ---
 name: phosphorylated_predicted
 description: 'Predicted phosphorylation sites from PhosPhAt.'
-version: 0.1
+version: 0.2
 type: query
 icon: phosphat_logo.png
 main_module: services.phosphorylated_predicted.main.py
@@ -13,7 +13,6 @@ whitelist:
 tags:
     - PhosPhAt
     - protein
-    - dev
     - phosphorylation
 
 authors:
