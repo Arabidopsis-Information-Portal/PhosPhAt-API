@@ -38,6 +38,8 @@ def search(args):
 # Returns a list of valid transcript IDs
 def list(args):
     valid_transcripts = []
-    with open('services/phosphorylated_experimental/experimental_transcripts.txt') as f:
-        valid_transcripts = f.read().splitlines()
+    #with open('services/phosphorylated_experimental/experimental_transcripts.txt') as f:
+        #valid_transcripts = f.read().splitlines()
+    for i in xrange(500):
+        valid_transcripts.append(i)
     print json.dumps(valid_transcripts)
