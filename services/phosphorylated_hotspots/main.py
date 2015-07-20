@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import services.common.tools as tools # Custom module for shared functions
-import services.common.lists as lists
+import services.common.lists as lists # Contains lists of valid transcripts
 import json # Allows conversion to and from json
 
 # Specifies kind of data to retrieve from PhosPhAt

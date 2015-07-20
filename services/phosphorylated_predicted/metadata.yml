@@ -4,6 +4,7 @@ name: phosphorylated_predicted
 description: 'Predicted phosphorylation sites from PhosPhAt.'
 version: 0.1
 type: query
+icon: services/common/phosphat_logo.png
 main_module: services.phosphorylated_predicted.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
@@ -31,7 +32,7 @@ endpoints:
         required: true
         default: AT1G06410.1
   /list:
-    description: 'Returns a list transcript IDs that PhosPhAt has predicted phosphorylation data on.'
+    description: 'Returns a list transcript IDs that PhosPhAt has predicted phosphorylation data for.'
 
 sources:
   - title: PhosPhAt
