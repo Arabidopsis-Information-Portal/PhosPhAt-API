@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import services.common.tools as tools # Custom module for shared functions
+import services.common.lists as lists
 import json # Allows conversion to and from json
 
 # Specify kind of data to retrieve from PhosPhAt
@@ -37,12 +38,4 @@ def search(args):
 
 # Returns a list of valid transcript IDs
 def list(args):
-    valid_transcripts = []
-    #with open('services/phosphorylated_experimental/experimental_transcripts.txt') as f:
-        #valid_transcripts = f.read().splitlines()
-    for i in xrange(500):
-        valid_transcripts.append(i)
-    for transcript in valid_transcripts:
-        print transcript
-        print '---'
-    #print json.dumps(valid_transcripts)
+    print lists.EXPERIMENTAL
