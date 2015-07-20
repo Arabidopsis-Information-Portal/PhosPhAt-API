@@ -25,7 +25,7 @@ def search(args):
         extracted_data = {}
         extracted_data['position_in_protein'] = p['prd_position']
         extracted_data['prediction_score'] = p['prd_score']
-        extracted_data['13mer_sequence'] = p['prd_13mer']
+        extracted_data['thirteen_mer_sequence'] = p['prd_13mer']
         # Adama requires JSON objects be separated by three dashes
         print json.dumps(extracted_data) + '\n---'
 
