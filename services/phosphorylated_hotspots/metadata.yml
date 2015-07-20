@@ -4,7 +4,7 @@ name: phosphorylated_hotspots
 description: 'Phosphorylation hotspots from PhosPhAt.'
 version: 0.1
 type: query
-icon: services/common/phosphat_logo.png
+icon: phosphat_logo.png
 main_module: services.phosphorylated_hotspots.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
