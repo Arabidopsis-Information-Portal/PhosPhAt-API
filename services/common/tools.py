@@ -62,7 +62,8 @@ def expand_mod_type(short_version):
     switcher = {
         'phos' : 'experimental/validated phosphorylation site',
         'phos_amb' : 'ambiguous phosphorylation site',
-        'ox' : 'site of oxidized methionine'
+        'ox' : 'site of oxidized methionine',
+        'ox_amb': 'ambiguous site of oxidized methionine'
     }
     # Used switcher.get('key') over switcher['key'] to prevent a KeyError.
     # The second parameter is the value returned in case the key can't be found.
