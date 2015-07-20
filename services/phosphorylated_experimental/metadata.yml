@@ -4,7 +4,7 @@ name: phosphorylated_experimental
 description: 'Experimental phosphorylation sites from PhosPhAt.'
 version: 0.2
 type: query
-icon: ./common/phosphat_logo.png
+icon: services/common/phosphat_logo.png
 main_module: services.phosphorylated_experimental.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
