@@ -42,4 +42,7 @@ def list(args):
         #valid_transcripts = f.read().splitlines()
     for i in xrange(500):
         valid_transcripts.append(i)
-    print json.dumps(valid_transcripts)
+    for transcript in valid_transcripts:
+        print transcript
+        print '---'
+    #print json.dumps(valid_transcripts)
