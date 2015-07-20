@@ -38,4 +38,4 @@ def search(args):
 
 # Returns a list of valid transcript IDs
 def list(args):
-    print lists.EXPERIMENTAL
+    print json.dumps(lists.EXPERIMENTAL)

@@ -31,4 +31,4 @@ def search(args):
 
 # Returns a list of valid transcript IDs
 def list(args):
-    print lists.PREDICTED
+    print json.dumps(lists.PREDICTED)
