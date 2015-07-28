@@ -2,7 +2,7 @@
 ---
 name: phosphorylated_hotspots
 description: 'Phosphorylation hotspots (predicted) from PhosPhAt.'
-version: 0.2
+version: 0.3
 type: query
 icon: phosphat_logo.png
 main_module: services.phosphorylated_hotspots.main.py
