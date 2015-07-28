@@ -30,7 +30,7 @@ endpoints:
         description: AGI Transcript Identifier.
         type: string
         required: true
-        default: AT1G06410.1
+        default: AT1G01540.1
   /list:
     description: 'Returns a list transcript IDs that PhosPhAt has hotspot data for.'
 

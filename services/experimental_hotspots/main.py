@@ -14,7 +14,7 @@ def search(args):
     Args:
         All arguments are stored in a single dict.
         transcript_id: AGI Transcript Identifier. Refers to a specific protein.
-            Example value: 'AT1G06410.1'
+            Example value: 'AT1G01540.1'
     """
     tools.validate_args(args)
 
