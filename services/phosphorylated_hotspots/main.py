@@ -8,8 +8,8 @@ API_METHOD = 'getHotspotData'
 
 # search function is required by Adama
 def search(args):
-    """Uses PhosPhAt API to return phosphorylation hotspots when given
-    an AGI code.
+    """Uses PhosPhAt API to return computationally predicted phosphorylation
+    hotspots when given an AGI code.
 
     Args:
         All arguments are stored in a single dict.

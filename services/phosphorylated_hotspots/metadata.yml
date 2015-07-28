@@ -1,7 +1,7 @@
 
 ---
 name: phosphorylated_hotspots
-description: 'Phosphorylation hotspots from PhosPhAt.'
+description: 'Phosphorylation hotspots (predicted) from PhosPhAt.'
 version: 0.2
 type: query
 icon: phosphat_logo.png
@@ -24,7 +24,7 @@ authors:
 
 endpoints:
   /search:
-    description: 'Returns a list of JSON objects containing data on peptide sequences where phosphorylation is likely to occur.'
+    description: 'Returns a list of JSON objects containing data on peptide sequences which were computationally predicted to be considered phosphorylation hotspots.'
     parameters:
       - name: transcript_id
         description: AGI Transcript Identifier.
