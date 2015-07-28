@@ -24,7 +24,7 @@ authors:
 
 endpoints:
   /search:
-    description: 'Returns a list of JSON objects containing data on peptide sequences which were computationally predicted to be considered phosphorylation hotspots.'
+    description: 'Returns a list of JSON objects containing data on peptide sequences which were computationally considered to be phosphorylation hotspots.'
     parameters:
       - name: transcript_id
         description: AGI Transcript Identifier.
