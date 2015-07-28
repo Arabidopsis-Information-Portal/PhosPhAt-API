@@ -1,0 +1,43 @@
+
+---
+name: experimental_hotspots
+description: 'Phosphorylation hotspots (experimental) from PhosPhAt.'
+version: 0.1
+type: query
+icon: phosphat_logo.png
+main_module: services.experimental_hotspots.main.py
+url: http://phosphat.uni-hohenheim.de/
+whitelist:
+  - phosphat.uni-hohenheim.de
+
+tags:
+    - PhosPhAt
+    - protein
+    - phosphorylation
+    - hotspots
+
+authors:
+    - name: Ismail Liban
+      email: iliban@jcvi.org
+      sponsor_organization: JCVI
+      sponsor_uri: http://www.jcvi.org/
+
+endpoints:
+  /search:
+    description: 'Returns a list of JSON objects containing data on peptide sequences which were experimentally determined to be phosphorylation hotspots.'
+    parameters:
+      - name: transcript_id
+        description: AGI Transcript Identifier.
+        type: string
+        required: true
+        default: AT1G06410.1
+  /list:
+    description: 'Returns a list transcript IDs that PhosPhAt has hotspot data for.'
+
+sources:
+  - title: PhosPhAt
+    description: 'PhosPhAt contains information on Arabidopsis phosphorylation sites.'
+    uri: http://phosphat.uni-hohenheim.de/
+    provider_name: Waltraud Schulze
+    sponsor_organization_name: University of Hohenheim
+    sponsor_uri: https://www.uni-hohenheim.de
