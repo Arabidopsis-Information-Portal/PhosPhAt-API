@@ -5,7 +5,7 @@ description: 'Phosphorylation hotspots (predicted) from PhosPhAt.'
 version: 0.3
 type: query
 icon: phosphat_logo.png
-main_module: services.phosphorylated_hotspots.main.py
+main_module: services.phosphorylated_hotspots_predicted.main.py
 url: http://phosphat.uni-hohenheim.de/
 whitelist:
   - phosphat.uni-hohenheim.de
