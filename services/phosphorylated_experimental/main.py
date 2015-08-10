@@ -59,8 +59,6 @@ def search(args):
     # that's why we're looping through phos_sites['result'].
     for p_site in phos_sites['result']:
         # Each p_site is a dict within phos_sites['result'].
-        # We're reformating the data contained by each p_site by copying
-        # it over to a new dict. We're then immediately printing the new dict.
         extracted_data = {}
         extracted_data['peptide_sequence'] = p_site['pep_sequence']
         extracted_data['modified_sequence'] = p_site['modifiedsequence']
