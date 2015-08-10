@@ -1,8 +1,16 @@
-import requests # Allows for HTTP requests to be made
-import json # Allows conversion to and from json
-import re # Allows for the use of regular expressions
+# A Python module that allows for HTTP requests to be made.
+import requests
+# A Python module that allows conversion to and from json.
+import json
+# A Python module that allows for the use of regular expressions
+import re
 
-# Original url on which all parameters are added.
+# Original API url on which all parameters are added. This base URL is used to
+# create a complete URL.
+# A complete url with all parameters added looks like the following:
+# http://phosphat.uni-hohenheim.de/PhosPhAtHost30/productive/views/PreJsonMeth.php?method=getExperimentsModAa&protid="AT1G01540.1"
+# In this case the API method is 'getExperimentsModAa' and the transcript ID is 'AT1G01540.1'.
+# A complete URL is used to contact the remote host PhosPhAt via HTTP requests.
 API_BASE_URL = ('http://phosphat.uni-hohenheim.de/PhosPhAtHost30'
         '/productive/views/PreJsonMeth.php')
 
@@ -44,13 +52,14 @@ def validate_args(args):
 
     transcript_id = args['transcript_id'].strip()
 
-    # Verify transcript_id is actually valid by checking its format
+    # Verify the transcript_id is valid by checking its format via
+    # a regular expression.
     p = re.compile('^AT[1-5CM]G[0-9]{5,5}\.[0-9]{1,3}$', re.IGNORECASE)
     if not p.search(transcript_id):
         raise ValueError('Not a valid transcript_id')
 
 def expand_mod_type(short_version):
-    """Swaps modification type to a human readable version.
+    """Exapnds the modification type to a human readable description.
 
     Args:
         short_version: a modification type code from PhosPhAt.
