@@ -2,23 +2,19 @@
 
 # services.common.tools is a custom module that contains methods shared by
 # all four web services.
-# The module is located at services/common/tools.py
-# Since all four web services are contacting the same remote host (PhosPhAt),
-# all code that deals with retrieving the actual data is only written once.
 import services.common.tools as tools
 
 # services.common.lists is a custom module that contains lists of valid
 # transcripts that PhosPhAt has data on.
-# The module is located at services/common/lists.py
-# The lists were downloaded from PhosPhAt's website (phosphat.uni-hohenheim.de).
 import services.common.lists as lists
 
 # A Python module that allows conversion to and from json.
 import json
 
 # 'getExperimentsModAa' is the method used to retrieve experimental data
-# from the remote host PhosPhAt. Different methods retrieve different kinds of
-# data. We obtained a list of methods that could be called through personal
+# from the remote host PhosPhAt.
+#
+# We obtained a list of methods that could be called through personal
 # communication with PhosPhAt.
 API_METHOD = 'getExperimentsModAa'
 
@@ -38,25 +34,13 @@ def search(args):
     tools.validate_args(args)
 
     # tools.request_data is a custom method in the services.common.tools module.
-    # It contacts the remote host PhosPhAt and requests phosphorylation data.
-    # It returns the data as a dict, which is then stored in phos_sites.
-    #
-    # tools.request_data accepts two arguments:
-    #    - the transcript ID (args['transcript_id'])
-    #    - the method used to retrieve experimental data (API_METHOD)
-    #
-    # args is a dict containing all of the arguments entered by the client,
-    # and transcript_id is a field name for a specific argument.
-    # All of the field names are specified in the metadata.yml file.
-    #
+    # It contacts the remote host PhosPhAt and returns phosphorylation data
+    # as a dict, which is then stored in phos_sites.
     # This method will raise an exception if it can't connect to PhosPhAt.
     phos_sites = tools.request_data(args['transcript_id'], API_METHOD)
 
-    # The formatting of the data returned was discovered through personal
-    # communication with PhosPhAt.
-    # phos_sites is a dict, and phos_sites['result'] is a dict within
-    # phos_sites. phos_sites['result'] contains the actual data, so
-    # that's why we're looping through phos_sites['result'].
+
+    # phos_sites is a dict, and phos_sites['result'] is a dict within phos_sites.
     for p_site in phos_sites['result']:
         # Each p_site is a dict within phos_sites['result'].
         extracted_data = {}

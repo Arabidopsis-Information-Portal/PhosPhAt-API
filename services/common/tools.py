@@ -5,12 +5,10 @@ import json
 # A Python module that allows for the use of regular expressions
 import re
 
-# Original API url on which all parameters are added. This base URL is used to
-# create a complete URL.
+# Original API url on which all parameters are added.
 # A complete url with all parameters added looks like the following:
 # http://phosphat.uni-hohenheim.de/PhosPhAtHost30/productive/views/PreJsonMeth.php?method=getExperimentsModAa&protid="AT1G01540.1"
 # In this case the API method is 'getExperimentsModAa' and the transcript ID is 'AT1G01540.1'.
-# A complete URL is used to contact the remote host PhosPhAt via HTTP requests.
 API_BASE_URL = ('http://phosphat.uni-hohenheim.de/PhosPhAtHost30'
         '/productive/views/PreJsonMeth.php')
 
